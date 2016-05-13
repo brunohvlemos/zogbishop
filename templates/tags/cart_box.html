@@ -1,0 +1,8 @@
+{% load catalog_tags %}
+{% with cart_item_count as cart_count %}
+	<a href="/cart">
+		
+		<br />
+		{{ cart_count }} Item{{ cart_count| pluralize}}
+		</a>
+{% endwith %}
