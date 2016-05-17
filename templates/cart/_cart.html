@@ -1,4 +1,5 @@
 {%load catalog_tags %}
+{% load catalog_filters %}
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -25,10 +26,10 @@
             <div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
                 <div class="header-logotype">
                     <a href="index.html">
-                        xx
+                        Zogbi Tecidos
                     </a>
                     <div class="Slogan">
-                        لورم ایپسوم متن ساختگی با تولید
+                        A sua loja de Patchwork
                     </div>
                 </div>
             </div>
@@ -37,7 +38,7 @@
             <div class="col-lg-5 col-md-5 col-sm-6 col-xs-7">
                 <form action="">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="جستجو محصول">
+                        <input type="text" class="form-control" placeholder="Procure um produto">
                         <span class="input-group-btn">
                             <button class="btn btn-default" type="submit">
                                 <i class="glyphicon glyphicon-search"></i>
@@ -54,7 +55,7 @@
                                   <span class="pull-left">
                             <i class="glyphicon glyphicon-shopping-cart"></i>
                         </span> 
-                                <span class="pull-left">Shopping Cart: 2 item(s)</span>
+                                <span class="pull-left">Carrinho:{% cart_box request %} </span>
                               
                          <span class="glyphicon glyphicon-triangle-bottom pull-right"></span>                          </button>
 
@@ -99,24 +100,24 @@
         </button>
         <!-- Text Logo on Mobile -->
         <a href="#" class="navbar-brand visible-xs">
-            فروشگاه مجازی
+            Zogbi Tecidos
         </a>
         </div>
-        <div class="navbar-collapse navbar-ex1-collapse collapse">
+        <div class="navbar-collapse navbar-ex1-collapse collapse" aria-expanded="false">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="index.html">صفحه اصلی</a>
+                    <a href="/">Home</a>
                 </li>
                 <li>
-                    <a href="catalog.html">محصولات</a>
+                    <a href="/">Catálogo</a>
                 </li>
                 <li>
-                    <a href="cart.html">سبد خرید</a>
+                    <a href="/cart">Carrinho</a>
                 </li>
                 <li>
-                    <a href="checkout.html">تسویه حساب</a>
+                    <a href="/contato">Contato</a>
                 </li>
-                <li class="nav-dropdown">
+                <!-- <li class="nav-dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         سایر صفحات 
                         <span class="caret"></span>
@@ -129,7 +130,7 @@
                         <li><a href="register.html">ورود</a></li>
                         <li><a href="register.html">عضویت</a></li>
                     </ul>
-                </li>
+                </li> -->
                 
             </ul>
         </div>
@@ -145,49 +146,29 @@
             <div class="col-lg-12 col-md-12 col-sm-12 visible-lg visible-md">
                 <div class="no-padding">
                     <span class="title">
-                        پرفروش ترین محصولات
+                        Mais vendidos
                     </span>
                 </div>
                 <div class="thumbnail col-lg-12 col-md-12 col-sm-6 text-center">
                     <a href="detail.html" style="overflow: hidden; position: relative;">
-                        <img src="media/product/product-1.jpg" style="width: 250px; height: auto;">
+                        <img src="/static/images/products/main/image1.jpg" style="width: 250px; height: auto;">
                     </a>
                     <div class="caption prod-caption">
                         <h4>
                             <a href="detail.html">
-                                 یک محصول خوبــــ...
+                                Tecido qualquer
                             </a>
                         </h4>
                         <p>
-                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و
+                            asifhjofjofo
                         </p>
                         <p></p>
                         
                         <div class="btn-group">
-                            <a href="#" class="btn btn-default">$ 528.96</a>
+                            <a href="#" class="btn btn-default">R$ 528.96</a>
                             <a href="#" class="btn btn-primary">
                                 <span class="glyphicon glyphicon-shopping-cart"></span>
-                                خرید
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="thumbnail col-lg-12 col-md-12 col-sm-6 hidden-xs text-center">
-                    <a href="detail.html" style="overflow: hidden">
-                        <img src="media/product/product-8.jpg" style="width: 280px; height: auto; ">
-                    </a>
-                    <div class="caption prod-caption">
-                        <h4>
-                            <a href="detail.html">محصول پرطرفدار ...</a>
-                        </h4>
-                        <p>
-                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و
-                        </p>
-                        <div class="btn-group">
-                            <a href="#" class="btn btn-default">$ 528.96</a>
-                            <a href="#" class="btn btn-primary">
-                                <span class="glyphicon glyphicon-shopping-cart"></span>
-                                خرید
+                                Comprar
                             </a>
                         </div>
                     </div>
@@ -203,98 +184,77 @@
         <div class="col-lg-9 col-md-9 col-sm-12">
             <div class="col-lg-12 col-sm-12">
                 <span class="title">
-                    سبد خرید
+                    Carrinho de compras
                 </span>
             </div>
             <div class="col-lg-12 col-sm-12 hero-feature">
                 <table class="table table-bordered tbl-cart table-hover">
                     <thead>
                         <tr class="text-center">
-                            <td class="tbl-cart-image hidden-xs">تصویر</td>
-                            <td>نام محصول</td>
+                            <td class="tbl-cart-image hidden-xs">Imagem</td>
+                            <td>Produto</td>
                             
                             
-                            <td class="td-qty">تعداد</td>
-                            <td>فی</td>
-                            <td class="price-total">جمع</td>
-                            <td class="tbl-cart-remove">حذف</td>
+                            <td class="td-qty">Quantidade</td>
+                            <td>Preço unitário</td>
+                            <td class="price-total">Preço total</td>
+                            <td class="tbl-cart-remove">Remover</td>
                         </tr>
                     </thead>
                         <tbody>
+                        {% for item in cart_items %}
                             <tr>
                                 <td class="hidden-xs">
                                     <a href="detail.html">
-                                        <img src="media/product/product-1.jpg" alt="Age Of Wisdom Tan Graphic Tee" title="" class="tbl-cart-image" width="47" height="47">
+                                        <img src="/static/images/products/main/{{item.product.image}}" alt="Age Of Wisdom Tan Graphic Tee" title="" class="tbl-cart-image" width="47" height="47">
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="detail.html">
-                                         تیشرت خوبـــ   
-                                    متن طولانی متن طولانی متن طولانی متن طولانی 
+                                    <a href="{{ item.get_absolute_url }}" class="cart">
+                                        {{ item.name }}
                                     </a>
                                 </td>
-                                
-                                <td>
+                                <td class="text-center cart-remove-box"
+                                            <form method="post" action="." class="cart">
                                     <div class="input-group bootstrap-touchspin">
-                                        <span class="input-group-btn"></span>
+                                  <!--  <span class="input-group-btn">
+                                      <button class="btn btn-default bootstrap-touchspin-down" type="button">-</button>
+                                  </span> -->
                                         <span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;"></span>
-                                            <input type="text" name="" value="2" class="input-qty form-control text-center" style="display: block;">
+                                            <input type="hidden" name="item_id" value="{{ item.id }}" />
+                                            <input type="text" name="quantity" value="{{ item.quantity }}" class="input-qty form-control text-center" style="display: block;">
                                         <span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span>
+                                         <span class="input-group-btn">
+                                           <input class="btn btn-default bootstrap-touchspin-up" name="submit" value="Atualizar" type="submit"/>{% csrf_token %}
+                                       </span> 
+                                            </form>
                                     </div>
                                 </td>
-                                <td class="price-single">100.000.000
-                                    ريال
+                                <td class="price-single">
+                                    {{ item.price |currency}}
                                 </td>
                                 <td>
-                                    20.000.000.000
-                                    ريال
+                                    {{ item.total|currency }}
                                 </td>
                                 <td class="text-center cart-remove-box">
-                                    <a href="#" rel="2">
-                                        <i class="glyphicon glyphicon-trash cart-item-remove"></i>
-                                    </a>
+                                    <form method="post" action="." class="cart">
+                                        <input type="hidden" name="item_id" value="{{ item.id }}" />
+                                            <input class="btn btn-default bootstrap-touchspin-up" type="submit" name="submit" value="Remover"/>{% csrf_token %}
+                                    </form>
                                 </td>
                             </tr>
+                            {% endfor %}
                             <tr>
-                                <td class="hidden-xs">
-                                    <a href="detail.html">
-                                        <img src="media/product/product-8.jpg" alt="Adidas Men Red Printed T-shirt" title="" class="tbl-cart-image"  width="47" height="47">
-                                    </a>
-                                </td>
-                                <td><a href="detail.html">پیرهن خیلی ارزان</a>
-                                </td>
-                                <td>
-                                    <div class="input-group bootstrap-touchspin">
-                                        <span class="input-group-btn"></span>
-                                        <span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;"></span>
-                                            <input type="text" name="" value="2" class="input-qty form-control text-center" style="display: block;">
-                                        <span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span>
-                                    </div>
-                                </td>
-                                <td class="price-single">20.000
-                                ريال
-                                </td>
-                                <td>50.000.000
-                                ريال
-                                </td>
-                                <td class="text-center cart-remove-box">
-                                    <a href="#" rel="1">
-                                        <i class="glyphicon glyphicon-trash cart-item-remove"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="3" align="left">جمع کل</td>
-                                <td class="price-total text-center" colspan="3"><strong> 163.47
-                                        ريال</strong>
+                                <td colspan="3" align="left">Total de compras</td>
+                                <td class="price-total text-center" colspan="3"><strong> {{ cart_subtotal |currency }}
+                                </strong>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                         <div class="btn-group btns-cart pull-left">
-                                <button type="button" class="btn btn-primary" onclick="window.location='catalogue.html'"><i class="glyphicon glyphicon-circle-arrow-right"></i> بازگشت به فروشگاه</button>
-                                <button type="button" class="btn btn-primary">برورزرسانی سبد خرید</button>
-                                <button type="button" class="btn btn-primary" onclick="window.location='checkout.html'">تسویه حساب <i class="glyphicon glyphicon-circle-arrow-left"></i></button>
+                                <button type="button" class="btn btn-primary" onclick="window.location='catalogue.html'"><i class="glyphicon glyphicon-circle-arrow-left"></i>Continuar comprando</button>
+                                <button type="button" class="btn btn-primary" onclick="window.location='checkout'"> Checkout <i class="glyphicon glyphicon-circle-arrow-right"></i></button>
                         </div>
 	            </div>
 
@@ -313,45 +273,44 @@
         <div class="col-lg-4 col-md-4 col-sm-6">
             <div class="column">
                 <h4>
-                    دسترسی سریع
+                    Informação
                 </h4>
                 <ul>
-                    <li><a href="#">درباره ما</a></li>
-                    <li><a href="#">درباره ما</a></li>
-                    <li><a href="#">درباره ما</a></li>
-                    <li><a href="#">درباره ما</a></li>
+                    <li><a href="/about">Sobre</a></li>
+                    <li><a href="/policy-privacy">Política de privacidade</a></li>
+                    <li><a href="/terms">Termos e condições</a></li>
+                    <li><a href="/shipping-methods">Métodos de envio</a></li>
                 </ul>
             </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-6">
             <div class="column">
                 <h4>
-                    دسترسی سریع
+                    Atendimento
                 </h4>
                 <ul>
-                    <li><a href="#">درباره ما</a></li>
-                    <li><a href="#">درباره ما</a></li>
-                    <li><a href="#">درباره ما</a></li>
-                    <li><a href="#">درباره ما</a></li>
+                    <li><a href="#">Telefone: (11)4707-0707</a></li>
+                    <li><a href="#">Celular: (11)11940-0894</a></li>
+                    <li><a href="#">Email: sdfs@gmail.com</a></li>
                 </ul>
             </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-6">
             <div class="column">
                 <h4>
-                    دسترسی سریع
+                    Redes sociais
                 </h4>
                 <ul>
-                    <li><a href="#">درباره ما</a></li>
-                    <li><a href="#">درباره ما</a></li>
-                    <li><a href="#">درباره ما</a></li>
-                    <li><a href="#">درباره ما</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Whatsapp</a></li>
                 </ul>
             </div>
         </div>
     </div>
     <div class="navbar-inverse text-center copyright">
-        کلیه حقوق محفوظ می باشد.
+        Obrigado por comprar conosco.
     </div>
 </footer>
 <a href="#top" class="back-top text-center" onclick="$('body,html').animate({scrollTop:0},500); return false" style="display: block;">
