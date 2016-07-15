@@ -1,14 +1,36 @@
-<h3>Categorias</h3>
-<ul id="categories">
-{% with active_categories as cats %}
-{% for c in cats %}
-<li>
-{% ifequal c.get_absolute_url request_path %}
-{{ c.name }}<br />
-{% else %}
-<a href="{{ c.get_absolute_url }}" class="category">{{ c.name }}</a><br />
-{% endifequal %}
-</li>
-	{% endfor %}
-{% endwith %}
-</ul>
+<div class="col-lg-12 col-md-12 col-sm-6">
+                <div class="no-padding">
+                    <span class="title"><font><font class="">
+                        Categorias
+                    </font></font></span>
+                </div>
+                
+                <div class="panel-group panel-categories" id="accordion">
+                    <div class="panel panel-default">
+                        <!-- <div class="panel-heading have-sub">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class="collapsed" aria-expanded="false"><font><font>produtos Khvvb</font></font></a>
+                            <i class="glyphicon glyphicon-triangle-left pull-left"></i></h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse" aria-expanded="true">
+                            <div class="list-group">
+                                <a href="#" class="list-group-item"><font><font>O primeiro produto, </font></font></a>
+                                <a href="#" class="list-group-item"><font><font>o segundo produto</font></font></a>
+                            </div>
+                        </div> -->
+                        {% with active_categories as cats %}
+						{% for c in cats %}
+                        <div class="panel-heading ">
+                            <h4 class="panel-title">
+                            {% ifequal c.get_absolute_url request_path %}
+                                <font><font>{{ c.name }}</font></font>
+                            {% else %}
+                            	<a href="{{ c.get_absolute_url }}" class="category"><font><font>{{ c.name }}</font></font></a><br/>
+                            {% endifequal %}
+                            </h4>
+                        </div>
+                        {% endfor %}
+                        {% endwith %}
+                    </div>
+                </div>
+</div>
