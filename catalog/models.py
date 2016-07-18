@@ -37,13 +37,14 @@ class Product(models.Model):
 	is_active = models.BooleanField(default=True)
 	is_bestseller = models.BooleanField(default=False)
 	is_featured = models.BooleanField(default=False)
-	quantity = models.IntegerField()
+	quantity = models.IntegerField("Quantidade")
 	description = models.TextField()
 	meta_keywords = models.CharField(max_length=255, help_text='Comma-delimited set of SEO keywords for meta tag')
 	meta_description = models.CharField(max_length=255, help_text='Content for description meta tag')
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
 	categories = models.ManyToManyField(Category)
+	stock = models.IntegerField()
 
 	class Meta:
 		db_table = 'products'

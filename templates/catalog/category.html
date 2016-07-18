@@ -1,10 +1,42 @@
 {% extends "catalog.html" %}
+{% load catalog_filters %}
 {% block content %}
-<h1>{{ c.name }}</h1>
-{{ c.description }}
 <br />
+{% for p in products %}
+ <div class="col-lg-4 col-sm-4 hero-feature text-center">
+                <div class="thumbnail">
+                    <a href="detail.html">
+                        <img src="/static/images/products/main/{{p.image}}" alt="{{ p.name }}" class="bn" />
+                    </a>
+                    <div class="caption prod-caption">
+                        <h4>
+                            <a href="detail.html"><font><font>{{ p.name }}</font></font></a>
+                        </h4>
+                        <p><font><font>
+                            {{p.description}}
+                        </font></font></p>
+                            <div class="btn-group btn-group-justified">
+                                <a href="#" class="btn btn-default"><font><font>{% if p.sale_price %}
+									<del>{{ p.old_price | currency}}</del>
+									<br />
+									{{ p.price | currency}}
+									{% else %}
+									{{ p.price | currency}}
+									{% endif %}</font></font>
+								</a>
+                                <a href="{{ p.get_absolute_url }}" class="btn btn-primary">
+                                    <span class="glyphicon glyphicon-shopping-cart"></span><font><font>
+                                Comprar
+                                </font></font></a>
+                            </div>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+{% endfor %}	
 
-<div class="products">
+
+<!-- <div class="products">
 		<div class="container">
 			<div class="products-grids">
 				<div class="col-md-8 products-grid-left">
@@ -25,6 +57,6 @@
 				</div>
 			</div>
 		</div>
-</div>
+</div> -->
 
 {% endblock %}
