@@ -7,6 +7,7 @@ from django.core.urlresolvers import reverse
 
 
 def show_cart(request, template_name="cart/_cart.html"):
+	best_sellers = Product.objects.filter(is_bestseller = True).order_by('-created_at')[:2]
 	if request.method == 'POST':
 		postdata = request.POST.copy()
 		if postdata.get('submit') == 'Remover':

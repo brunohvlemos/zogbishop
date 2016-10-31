@@ -13,11 +13,43 @@ import pyexcel.ext.ods3
 from django.views.generic import View
 # Create your views here.
 
+class IndexView(View):
+	template_name="catalog/index.html"
+	products = Product.objects.all().order_by('-created_at')
+	best_sellers = Product.objects.filter(is_bestseller = True).order_by('-created_at')[:2]
+	def get(self, *args, **kwargs):
+		
+		return render_to_response(template_name, locals(),context_instance=RequestContext(request))
+
+	def post(self):
+		texto_procurado = request.POST['texto_procurado']
+		lista_de_ids = []
+		filtro ={}
+		for field in Product._meta.fields:
+			if field.name!='id':
+				if field.get_internal_type() == 'CharField' or field.get_internal_type() == 'TextField' or field.get_internal_type() == 'IntegerField':
+					nome_filtro = str(field.name)+'__icontains'
+					filtro = {}
+					filtro[nome_filtro] = texto_procurado
+					products = Product.objects.filter(**filtro)
+					for p in qs_products:
+						lista_de_ids.append(p.id)
+					products = Product.objects.filter(id__in=lista_de_ids)
+
+		return render_to_response(template_name, locals(),context_instance=RequestContext(request))
+
+
+
+
 def index(request, template_name="catalog/index.html"):
 	page_title = 'Tecidos Zogbi e Patchwork'
+	products = Product.objects.all().order_by('-created_at')
+	best_sellers = Product.objects.filter(is_bestseller = True).order_by('-created_at')[:2]
 	return render_to_response(template_name, locals(),context_instance=RequestContext(request))
 
+
 def show_category(request, category_slug, template_name="catalog/single.html"):
+	best_sellers = Product.objects.filter(is_bestseller = True).order_by('-created_at')[:2]
 	c = get_object_or_404(Category, slug=category_slug)
 	products = c.product_set.all()
 	page_title = c.name
@@ -26,6 +58,7 @@ def show_category(request, category_slug, template_name="catalog/single.html"):
 	return render_to_response(template_name, locals(),context_instance=RequestContext(request))
 
 def show_product(request, product_slug, template_name="catalog/product.html"):
+	best_sellers = Product.objects.filter(is_bestseller = True).order_by('-created_at')[:2]
 	p = get_object_or_404(Product, slug=product_slug)
 	categories = p.categories.all()
 	page_title = p.name
@@ -33,6 +66,7 @@ def show_product(request, product_slug, template_name="catalog/product.html"):
 	meta_description = p.meta_description
 	# need to evaluate the HTTP method
 	if request.method == 'POST':
+		print(request.POST)
 		# # add to cart...create the bound form
 		postdata = request.POST.copy()
 		form = ProductAddToCartForm(request, postdata)

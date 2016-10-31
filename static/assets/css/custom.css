@@ -204,7 +204,7 @@ p {margin: 0 0 10px 0;}
 .header-logotype {font: 24px/22px 'Roya'}
 .Slogan {font-size: 18px;}
 
-.btn-group-cart {width: 100%}
+.btn-group-cart {width: 100%;}
 .btn-cart-text {font: 18px/24px 'Roya' ;padding-right: 5px;}
 .cart-content {}
 ul.cart-content {min-width: 330px; }
@@ -258,10 +258,9 @@ footer .copyright {padding: 10px; color: #ccc;}
 .product-main-image { cursor: zoom-in; cursor: -webkit-zoom-in; cursor: -moz-zoom-in; }
 .well { border-radius: 0; -webkit-box-shadow: none; box-shadow: none; }
 
-.product-short-detail label{ font-weight: normal }
+.product-short-detail label{ font-weight: bold }
 .product-short-detail .col-xs-8:before{
 	margin-right: 3px;
-	content: ':'
 }
 .the-list { float: right; margin: 10px 0; width: 100%; }
 .the-list select { display: inline; width: auto; }
