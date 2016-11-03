@@ -8,7 +8,7 @@
     <!-- Bootstrap core CSS -->
     <link href="/static/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/static/assets/bootstrap/css/bootstrap-rtl.min.css" rel="stylesheet">
-
+    <link href="/static/css/font-awesome.min.css" rel="stylesheet">
     <link href="/static/assets/css/jquery.bxslider.css" rel="stylesheet">
         
     <!-- Custom styles for this template -->
@@ -20,7 +20,7 @@
 
 
 <header>
-    <div class="container margin-top-20 margin-bottom-10">
+    <div class="container margin-top-20 margin-bottom-10" style="background:'images/site/fundo1.jpg';">
         <div class="row">
             <!-- Logo -->
             <div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
@@ -38,10 +38,10 @@
             <div class="col-lg-5 col-md-5 col-sm-6 col-xs-7">
                 <form action="" method="ṕost">
                     <div class="input-group">
-                        <input type="text" class="form-control" id="texto_procurado" placeholder="Procure um produto">
+                        <input style="background-color: rgba(255,255,255, 0.8);" type="text" class="form-control" id="texto_procurado" placeholder="Procure um produto">
                         <span class="input-group-btn">
-                            <button class="btn btn-default" type="submit">
-                                <i class="glyphicon glyphicon-search"></i>
+                            <button class="btn btn-default" style="background-color: #337ab7;" type="submit">
+                                <i style="color: white;" class="glyphicon glyphicon-search"></i>
                             </button>
                         </span>
                     </div>
@@ -49,9 +49,9 @@
             </div>
             
             <!-- Cart -->
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-5">
+            <div class="pull-right">
                 <div class="btn-group btn-group-cart">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                <button type="button" class="btn btn-default dropdown-toggle"  style="background-color: rgba(255,255,255,0.8);" data-toggle="dropdown">
                                   <span class="pull-left">
                             <i class="glyphicon glyphicon-shopping-cart"></i>
                         </span> 
@@ -88,7 +88,7 @@
 </header>
 
 <!-- Navigation -->
-
+<div class= "container main-container" style="padding: 0px;">
 <nav class="navbar navbar-inverse" role="navigation">
     <div class="container">
         <div class="navbar-header">
@@ -137,6 +137,7 @@
         
     </div> <!-- container -->
 </nav> <!-- End Navigation -->
+</div>
 {%block site_wrapper %} {% endblock %}
 <footer>
     <div class="container margin-bottom-10">
@@ -218,12 +219,12 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="assets/js/jquery-1.11.2.min.js"></script>
-<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-<script src="assets/js/jquery.bxslider.min.js"></script>
-<script src="assets/js/bootstrap.touchspin.js"></script>
-<script src="assets/js/jquery.zoom.min.js"></script>
-<script src="assets/js/mimity.js"></script>
+<script src="/static/assets/js/jquery-1.11.2.min.js"></script>
+<script src="/static/assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/assets/js/jquery.bxslider.min.js"></script>
+<script src="/static/assets/js/bootstrap.touchspin.js"></script>
+<script src="/static/assets/js/jquery.zoom.min.js"></script>
+<script src="/static/assets/js/mimity.js"></script>
 
 </body>
 </html>

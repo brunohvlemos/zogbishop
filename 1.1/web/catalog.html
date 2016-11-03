@@ -1,0 +1,65 @@
+{% extends "index.html" %}
+{% block site_wrapper %}
+{% load catalog_tags %}
+
+ <!--start-content-->
+		 <!--start-banner-->
+		    <div class="banner">
+			    <div class="container">
+				   <div class="banner-grids">
+				   {% for b in best_sellers %}
+				   		<div class="col-md-6 jocket">
+						   <div class="jock-img">
+						     <img src="{{b.image}}" alt="">
+						   </div>
+						    <div class="jock-text">
+						      <h3 class="b-tittle">{{b.name}}</h3>
+							 <a class="collection" href="{{ b.get_absolute_url }}">Ver detalhes<i class="glyphicon glyphicon-arrow-right"></i></a>
+						   </div>
+						   <div class="clearfix"> </div>
+					   </div>
+					{% endfor %}
+					</div>
+				</div>
+			</div>
+		<!-- end banner -->
+
+	<!--/start-fashion-->
+	<div class="fashion-section">
+		 <div class="container"> 
+		     <h3 class="tittle">CATEGORIAS</h3>
+
+		   <div class="fashion-info">
+				<div class="col-md-4 fashion-grids">
+					<figure class="effect-bubba">
+						<img src="images/f1.jpg" alt=""/>
+						<figcaption>
+							<h4>Nuevo Shop</h4>
+							<p class="cart"><a href="single.html">Shop</a></p>				
+						</figcaption>			
+					</figure>		
+				</div>
+				<div class="col-md-4 fashion-grids">
+					<figure class="effect-bubba">
+						<img src="images/f2.jpg" alt=""/>
+						<figcaption>
+							<h4>Nuevo Shop</h4>
+								<p class="cart"><a href="single.html">Shop</a></p>				
+						</figcaption>			
+					</figure>		
+				</div>
+				<div class="col-md-4 fashion-grids">
+					<figure class="effect-bubba">
+						<img src="images/f3.jpg" alt=""/>
+						<figcaption>
+							<h4>Nuevo Shop</h4>
+							<p class="cart"><a href="single.html">Shop</a></p>							
+						</figcaption>			
+					</figure>		
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

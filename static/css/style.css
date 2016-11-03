@@ -28,7 +28,7 @@ input[type="button"],input[type="submit"],li.parallelogram{
 }
 h1,h2,h3,h4,h5,h6{
 	margin:0;
-	font-family: 'Roboto Slab', serif;
+	font-family: 'Open Sans', sans-serif;
 }	
 p{
 	margin:0;
@@ -112,7 +112,7 @@ label{
  font-size: 2.7em;
  font-weight:400;
  color: #18C9D2;
- font-family: 'Roboto Slab', serif;
+ font-family:  'Open Sans', sans-serif;
 }
 .logo  a h1:hover{
  text-decoration:none;
@@ -631,7 +631,7 @@ li.selector {
     list-style: none;
     font-size: 2em;
     font-weight: 400;
-	font-family: 'Roboto Slab', serif;
+	font-family:  'Open Sans', sans-serif;
 }
 .standards  h5 i {
     font-size: 0.8em;
@@ -1647,7 +1647,7 @@ p.comment-form-author {
     text-transform: uppercase;
     font-weight: 400;
     margin-bottom: 0.5em;
-	font-family: 'Roboto Slab', serif;
+	font-family:  'Open Sans', sans-serif;
 }
 .contact-form input[type="text"] {
 	padding: 15px;

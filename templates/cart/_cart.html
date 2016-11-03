@@ -25,17 +25,17 @@
                         <tbody>
                         {% for item in cart_items %}
                             <tr>
-                                <td class="hidden-xs">
+                                <td class="hidden-xs" style="font-color: #000;">
                                     <a href="detail.html">
                                         <img src="/static/images/products/main/{{item.product.image}}" alt="Age Of Wisdom Tan Graphic Tee" title="" class="tbl-cart-image" width="47" height="47">
                                     </a>
                                 </td>
-                                <td>
+                                <td style="font-color: #000;">
                                     <a href="{{ item.get_absolute_url }}" class="cart">
                                         {{ item.name }}
                                     </a>
                                 </td>
-                                <td class="text-center cart-remove-box">
+                                <td class="text-center cart-remove-box" style="font-color: #000;">
                                             <form method="post" action="." class="cart">
                                     <div class="input-group bootstrap-touchspin">
                                   <!--  <span class="input-group-btn">
@@ -52,10 +52,10 @@
                                     </div>
                                 </td>
                                 <td class="price-single">
-                                    {{ item.price |currency}}
+                                    <div align="center" style="color: #000;">{{ item.price |currency}}</div>
                                 </td>
                                 <td>
-                                    {{ item.total|currency }}
+                                    <div align="center" style="color: #000;">{{ item.total|currency }}</div>
                                 </td>
                                 <td class="text-center cart-remove-box">
                                     <form method="post" action="." class="cart">
@@ -66,8 +66,8 @@
                             </tr>
                             {% endfor %}
                             <tr>
-                                <td colspan="3" align="left">Total de compras</td>
-                                <td class="price-total text-center" colspan="3"><strong> {{ cart_subtotal |currency }}
+                                <td colspan="3" align="left" style="color:#000;">Total de compras</td>
+                                <td class="price-total text-center" colspan="3" style="color:#000;"><strong> {{ cart_subtotal |currency }}
                                 </strong>
                                 </td>
                             </tr>
